@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Random User Generator</title>
+</head>
+<body>
+    <!-- Everything loads into div#app -->
+    <!-- data can be passed by {{}} -->
+    <div id="app">
+        <!-- !!v-bind!!:src binds params from app.js (doesn't need {{}} @ "picture" property to be passed ) -->
+        <!-- v-bind.. concat: "`${param1} {$param2} ..`"" -->
+        <!-- v-bind can be replaced with just ":alt" -->
+        <img :class="gender" v-bind:src="picture" :alt="`${firstName} ${lastName}`">
+        <h1>{{firstName}} {{lastName}}</h1>
+        <h3>Email: {{email}}</h3>
+        <!-- bind event with v-on:click @ click event triggers getUser() function -->
+        <button v-on:click="getUser()" :class="gender">Get random user</button>
+    </div>
+
+    <!-- import VUE@ ver-3.0.5 -->
+    <script src="https://unpkg.com/vue@3.0.5"></script>
+    <script src="app.js"></script>
+</body>
+</html>
